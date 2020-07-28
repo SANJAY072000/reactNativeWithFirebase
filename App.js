@@ -41,6 +41,10 @@ export default class App extends Component {
               textAlign:'center'
             }
           }}>
+          <Stack.Screen name='LoadingScreen' component={LoadingScreen}
+            options={{
+              title:'Loading'
+            }}/>
           <Stack.Screen name='HomeScreen' component={HomeScreen}
             options={{
               title:'Home'
