@@ -13,17 +13,17 @@ import SignUpScreen from './screens/SignUpScreen';
 
 
 
-// var firebaseConfig = {
-//     apiKey: "AIzaSyCW8qayppSOogT1LolD6EnNzYR3NheAS9Q",
-//     authDomain: "rnbootcamp-a04ae.firebaseapp.com",
-//     databaseURL: "https://rnbootcamp-a04ae.firebaseio.com",
-//     projectId: "rnbootcamp-a04ae",
-//     storageBucket: "rnbootcamp-a04ae.appspot.com",
-//     messagingSenderId: "1068100926425",
-//     appId: "1:1068100926425:web:7be56739506bcfe99fb7c8",
-//     measurementId: "G-8V24XYCJTJ"
-//   };
-// firebase.initializeApp(firebaseConfig);
+var firebaseConfig = {
+    apiKey: "AIzaSyCW8qayppSOogT1LolD6EnNzYR3NheAS9Q",
+    authDomain: "rnbootcamp-a04ae.firebaseapp.com",
+    databaseURL: "https://rnbootcamp-a04ae.firebaseio.com",
+    projectId: "rnbootcamp-a04ae",
+    storageBucket: "rnbootcamp-a04ae.appspot.com",
+    messagingSenderId: "1068100926425",
+    appId: "1:1068100926425:web:7be56739506bcfe99fb7c8",
+    measurementId: "G-8V24XYCJTJ"
+  };
+firebase.initializeApp(firebaseConfig);
 const Stack=createStackNavigator();
 
 export default class App extends Component {

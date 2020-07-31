@@ -18,8 +18,25 @@ export default class SignInScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff"
   },
+  logoContainer: {
+    alignItems: "center",
+    marginTop: 100,
+    marginBottom: 100
+  },
+  form: {
+    padding: 20,
+    width: "100%",
+    marginBottom: 30
+  },
+  button: {
+    marginTop: 20
+  },
+  buttonText: {
+    color: "#fff"
+  },
+  footer: {
+    alignItems: "center"
+  }
 });
