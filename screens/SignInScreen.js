@@ -1,9 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,
+  KeyboardAvoidingView, Image, TouchableOpacity } from 'react-native';
+import * as firebase from 'firebase';
+import {Form, Item, Input, Label, Button} from 'native-base';
 
 
 export default class SignInScreen extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      email:'',
+      pass:''
+    };
+  }
+
   render(){
     return (
       <View style={styles.container}>
