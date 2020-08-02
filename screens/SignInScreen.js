@@ -17,10 +17,36 @@ export default class SignInScreen extends Component {
 
   render(){
     return (
-      <View style={styles.container}>
-        <Text>Welcome to SignInScreen</Text>
+      <KeyboardAvoidingView style={styles.container}
+        behavior='position' enabled>
+        <View style={styles.logoContainer}>
+          <Image source={require('../assets/logo.png')}/>
+          <Text>Qwerty</Text>
+        </View>
+        <Form style={styles.form}>
+          <Item floatingLabel>
+            <Label>Email</Label>
+            <Input autoCorrect={false} autoCapitalize='none'
+              keyboardType='email-address'
+              onChangeText={email=>this.setState({email})}/>
+          </Item>
+          <Item floatingLabel>
+            <Label>Password</Label>
+            <Input secureTextEntry={true} autoCorrect={false} autoCapitalize='none'
+              keyboardType='email-address'
+              onChangeText={pass=>this.setState({pass})}/>
+          </Item>
+          <Button style={styles.button} full rounded onPress={()=>{}}>
+            <Text style={styles.buttonText}>Sign In</Text>
+          </Button>
+        </Form>
+        <View style={styles.footer}><Text>Or</Text>
+        <TouchableOpacity onPress={()=>
+            this.props.navigation.navigate('SignUpScreen')}>
+        <Text>Create a new account?</Text>
+      </TouchableOpacity></View>
         <StatusBar style="auto" />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
