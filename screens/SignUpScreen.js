@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{Component} from 'react';
 import { StyleSheet, Text, View,
-  KeyboardAvoidingView, Image, TouchableOpacity } from 'react-native';
+  KeyboardAvoidingView, Image, TouchableOpacity, Alert } from 'react-native';
 import * as firebase from 'firebase';
 import {Form, Item, Input, Label, Button} from 'native-base';
 
@@ -15,6 +15,22 @@ export default class SignUpScreen extends Component {
       name:''
     };
   }
+
+signUpUser=>(name,email,pass){
+  firebase.auth()
+  .createUserWithEmailAndPassword(email,pass)
+  .then(res=>{
+    return res.user
+    .updateProfile({
+      displayName:name
+    })
+    .then(res=>{
+      this.props.navigation.replace('HomeScreen');
+    })
+    .catch(err=>Alert.alert(err.message));
+  })
+  .catch(err=>Alert.alert(err.message));
+}
 
   render(){
     return (
@@ -43,7 +59,13 @@ export default class SignUpScreen extends Component {
               keyboardType='email-address'
               onChangeText={pass=>this.setState({pass})}/>
           </Item>
-          <Button style={styles.button} full rounded onPress={()=>{}}>
+          <Button style={styles.button} full rounded onPress={()=>{
+            this.signUpUser(
+              this.state.name,
+              this.state.email,
+              this.state.pass
+            );
+          }}>
             <Text style={styles.buttonText}>Sign Up</Text>
           </Button>
         </Form>
