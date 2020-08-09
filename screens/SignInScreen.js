@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{Component} from 'react';
 import { StyleSheet, Text, View,
-  KeyboardAvoidingView, Image, TouchableOpacity } from 'react-native';
+  KeyboardAvoidingView, Image, TouchableOpacity, Alert } from 'react-native';
 import * as firebase from 'firebase';
 import {Form, Item, Input, Label, Button} from 'native-base';
 
@@ -13,6 +13,12 @@ export default class SignInScreen extends Component {
       email:'',
       pass:''
     };
+  }
+
+  signInUser=(email,pass)=>{
+    firebase.auth().signInWithEmailAndPassword(email,pass)
+    .then(res=>console.log('Signed In'))
+    .catch(err=>Alert.alert(err.message));
   }
 
   render(){
@@ -36,7 +42,9 @@ export default class SignInScreen extends Component {
               keyboardType='email-address'
               onChangeText={pass=>this.setState({pass})}/>
           </Item>
-          <Button style={styles.button} full rounded onPress={()=>{}}>
+          <Button style={styles.button} full rounded onPress={()=>{
+            this.signInUser(this.state.email,this.state.pass);
+          }}>
             <Text style={styles.buttonText}>Sign In</Text>
           </Button>
         </Form>
