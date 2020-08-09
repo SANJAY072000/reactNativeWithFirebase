@@ -21,7 +21,7 @@ export default class SignInScreen extends Component {
         behavior='position' enabled>
         <View style={styles.logoContainer}>
           <Image source={require('../assets/logo.png')}/>
-          <Text>Qwerty</Text>
+          <Text>Learn To Code</Text>
         </View>
         <Form style={styles.form}>
           <Item floatingLabel>
