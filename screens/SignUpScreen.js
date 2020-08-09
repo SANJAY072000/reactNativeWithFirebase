@@ -16,7 +16,7 @@ export default class SignUpScreen extends Component {
     };
   }
 
-signUpUser=>(name,email,pass){
+signUpUser=(name,email,pass)=>{
   firebase.auth()
   .createUserWithEmailAndPassword(email,pass)
   .then(res=>{
